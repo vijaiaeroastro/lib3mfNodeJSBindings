@@ -27,7 +27,7 @@ console.log(wrapper.GetBuildInformation())
 
 
 console.log("load 3MF file");
-reader.ReadFromFile("/home/vijai/Downloads/triangle.3mf");
+reader.ReadFromFile("/home/vijai/Code/3MF/lib3mf/SDK/Examples/Files/Helix.3mf");
 // console.log(len(model.GetMeshObjects()))
 
 console.log("creating Writer");
