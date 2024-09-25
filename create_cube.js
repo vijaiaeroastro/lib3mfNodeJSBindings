@@ -65,7 +65,9 @@ function addTriangle(mesh, p1, p2, p3) {
     };
     
     // Add triangle to the mesh
-    return mesh.AddTriangle(triangle);
+    mesh.AddTriangle(triangle);
+
+    return triangle
 }
 
 function main() {
@@ -112,11 +114,13 @@ function main() {
             triangles.push(triangle);
         }
 
-        // console.log(vertices, triangles)
+        console.log(triangles)
 
         // Set geometry to the mesh object
         console.log(meshObject.GetVertexCount(), meshObject.GetTriangleCount())
+        console.log("BEFORE SET GEOMETRY")
         meshObject.SetGeometry(vertices, triangles);
+        console.log("AFTER SET GEOMETRY")
         console.log(meshObject.GetVertexCount(), meshObject.GetTriangleCount())
 
         

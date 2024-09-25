@@ -35,6 +35,7 @@ Interface version: 2.3.2
 
 
 #include <node.h>
+#include <iostream>
 #include "lib3mf_nodewrapper.h"
 
 
@@ -4936,24 +4937,79 @@ void CLib3MFMeshObject::ClearAllProperties(const FunctionCallbackInfo<Value>& ar
 }
 
 
-void CLib3MFMeshObject::SetGeometry(const FunctionCallbackInfo<Value>& args) 
-{
-		Isolate* isolate = args.GetIsolate();
-		HandleScope scope(isolate);
-		try {
+// void CLib3MFMeshObject::SetGeometryOld(const FunctionCallbackInfo<Value>& args) 
+// {
+// 		Isolate* isolate = args.GetIsolate();
+// 		HandleScope scope(isolate);
+// 		try {
+//         sLib3MFDynamicWrapperTable * wrapperTable = CLib3MFBaseClass::getDynamicWrapperTable(args.Holder());
+//         if (wrapperTable == nullptr)
+//             throw std::runtime_error("Could not get wrapper table for Lib3MF method SetGeometry.");
+//         if (wrapperTable->m_MeshObject_SetGeometry == nullptr)
+//             throw std::runtime_error("Could not call Lib3MF method MeshObject::SetGeometry.");
+//         Lib3MFHandle instanceHandle = CLib3MFBaseClass::getHandle(args.Holder());
+//         Lib3MFResult errorCode = wrapperTable->m_MeshObject_SetGeometry(instanceHandle, 0, nullptr, 0, nullptr);
+//         CheckError(isolate, wrapperTable, instanceHandle, errorCode);
+
+// 		} catch (std::exception & E) {
+// 				RaiseError(isolate, E.what());
+// 		}
+// }
+
+void CLib3MFMeshObject::SetGeometry(const FunctionCallbackInfo<Value>& args) {
+    Isolate* isolate = args.GetIsolate();
+    HandleScope scope(isolate);
+
+    try {
+        // Get the wrapper table and check for method availability
         sLib3MFDynamicWrapperTable * wrapperTable = CLib3MFBaseClass::getDynamicWrapperTable(args.Holder());
         if (wrapperTable == nullptr)
             throw std::runtime_error("Could not get wrapper table for Lib3MF method SetGeometry.");
         if (wrapperTable->m_MeshObject_SetGeometry == nullptr)
             throw std::runtime_error("Could not call Lib3MF method MeshObject::SetGeometry.");
+
+        // Get the instance handle
         Lib3MFHandle instanceHandle = CLib3MFBaseClass::getHandle(args.Holder());
-        Lib3MFResult errorCode = wrapperTable->m_MeshObject_SetGeometry(instanceHandle, 0, nullptr, 0, nullptr);
+
+        // Ensure we have correct number of arguments
+        if (args.Length() < 2)
+            throw std::runtime_error("Invalid number of arguments. Expected vertices and triangles arrays.");
+
+        // Extract vertices array
+        Local<Array> vertexArray = Local<Array>::Cast(args[0]);
+        size_t vertexCount = vertexArray->Length();
+        std::vector<sLib3MFPosition> vertices(vertexCount);
+
+        for (size_t i = 0; i < vertexCount; ++i) {
+            Local<Value> vertexValue = vertexArray->Get(isolate->GetCurrentContext(), i).ToLocalChecked();
+            vertices[i] = convertObjectToLib3MFPosition(isolate, vertexValue);
+        }
+
+        // Extract triangles array
+        Local<Array> triangleArray = Local<Array>::Cast(args[1]);
+        size_t triangleCount = triangleArray->Length();
+        std::vector<sLib3MFTriangle> triangles(triangleCount);
+
+        for (size_t i = 0; i < triangleCount; ++i) {
+            Local<Value> triangleValue = triangleArray->Get(isolate->GetCurrentContext(), i).ToLocalChecked();
+            triangles[i] = convertObjectToLib3MFTriangle(isolate, triangleValue);
+        }
+
+        // Call the underlying C library method
+        Lib3MFResult errorCode = wrapperTable->m_MeshObject_SetGeometry(
+            instanceHandle,
+            static_cast<Lib3MF_uint64>(vertexCount),
+            &vertices[0],  // Pointer to the first element of the vertices array
+            static_cast<Lib3MF_uint64>(triangleCount),
+            &triangles[0]  // Pointer to the first element of the triangles array
+        );
         CheckError(isolate, wrapperTable, instanceHandle, errorCode);
 
-		} catch (std::exception & E) {
-				RaiseError(isolate, E.what());
-		}
+    } catch (std::exception &E) {
+        RaiseError(isolate, E.what());
+    }
 }
+
 
 
 void CLib3MFMeshObject::IsManifoldAndOriented(const FunctionCallbackInfo<Value>& args) 
