@@ -1,5 +1,4 @@
 build/
 cmake-build-debug
 *.stl
-*.3mf
 .idea
