@@ -117,11 +117,7 @@ function main() {
         console.log(triangles)
 
         // Set geometry to the mesh object
-        console.log(meshObject.GetVertexCount(), meshObject.GetTriangleCount())
-        console.log("BEFORE SET GEOMETRY")
         meshObject.SetGeometry(vertices, triangles);
-        console.log("AFTER SET GEOMETRY")
-        console.log(meshObject.GetVertexCount(), meshObject.GetTriangleCount())
 
         
         // Get identity transform

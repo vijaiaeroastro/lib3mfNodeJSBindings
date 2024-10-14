@@ -3844,7 +3844,7 @@ void CLib3MFMetaDataGroup::AddMetaData(const FunctionCallbackInfo<Value>& args)
 **************************************************************************************************************************/
 
 CLib3MFObject::CLib3MFObject()
-		: CLib3MFBaseClass()
+		: CLib3MFResource()
 {
 }
 
@@ -6365,7 +6365,7 @@ void CLib3MFBeamSet::GetBallReferences(const FunctionCallbackInfo<Value>& args)
 **************************************************************************************************************************/
 
 CLib3MFBaseMaterialGroup::CLib3MFBaseMaterialGroup()
-		: CLib3MFBaseClass()
+		: CLib3MFResource()
 {
 }
 
@@ -6639,7 +6639,7 @@ void CLib3MFBaseMaterialGroup::GetDisplayColor(const FunctionCallbackInfo<Value>
 **************************************************************************************************************************/
 
 CLib3MFColorGroup::CLib3MFColorGroup()
-		: CLib3MFBaseClass()
+		: CLib3MFResource()
 {
 }
 
@@ -6663,6 +6663,15 @@ void CLib3MFColorGroup::Init()
 		NODE_SET_PROTOTYPE_METHOD(tpl, "RemoveColor", RemoveColor);
 		NODE_SET_PROTOTYPE_METHOD(tpl, "SetColor", SetColor);
 		NODE_SET_PROTOTYPE_METHOD(tpl, "GetColor", GetColor);
+
+		// Also bind methods from CLib3MFResource
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetResourceID", CLib3MFResource::GetResourceID);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetUniqueResourceID", CLib3MFResource::GetUniqueResourceID);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "PackagePart", CLib3MFResource::PackagePart);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "SetPackagePart", CLib3MFResource::SetPackagePart);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetModelResourceID", CLib3MFResource::GetModelResourceID);
+
+
 		constructor.Reset(isolate, tpl->GetFunction(isolate->GetCurrentContext()).ToLocalChecked());
 
 }
@@ -6846,7 +6855,7 @@ void CLib3MFColorGroup::GetColor(const FunctionCallbackInfo<Value>& args)
 **************************************************************************************************************************/
 
 CLib3MFTexture2DGroup::CLib3MFTexture2DGroup()
-		: CLib3MFBaseClass()
+		: CLib3MFResource()
 {
 }
 
@@ -7048,7 +7057,7 @@ void CLib3MFTexture2DGroup::GetTexture2D(const FunctionCallbackInfo<Value>& args
 **************************************************************************************************************************/
 
 CLib3MFCompositeMaterials::CLib3MFCompositeMaterials()
-		: CLib3MFBaseClass()
+		: CLib3MFResource()
 {
 }
 
@@ -7244,7 +7253,7 @@ void CLib3MFCompositeMaterials::GetComposite(const FunctionCallbackInfo<Value>& 
 **************************************************************************************************************************/
 
 CLib3MFMultiPropertyGroup::CLib3MFMultiPropertyGroup()
-		: CLib3MFBaseClass()
+		: CLib3MFResource()
 {
 }
 
@@ -7880,7 +7889,7 @@ void CLib3MFAttachment::ReadFromBuffer(const FunctionCallbackInfo<Value>& args)
 **************************************************************************************************************************/
 
 CLib3MFTexture2D::CLib3MFTexture2D()
-		: CLib3MFBaseClass()
+		: CLib3MFResource()
 {
 }
 
@@ -8916,7 +8925,7 @@ void CLib3MFSlice::GetZTop(const FunctionCallbackInfo<Value>& args)
 **************************************************************************************************************************/
 
 CLib3MFSliceStack::CLib3MFSliceStack()
-		: CLib3MFBaseClass()
+		: CLib3MFResource()
 {
 }
 

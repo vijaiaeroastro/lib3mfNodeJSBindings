@@ -169,7 +169,7 @@ public:
  Class CLib3MFResource 
 **************************************************************************************************************************/
 class CLib3MFResource : public CLib3MFBaseClass {
-private:
+public:
 	static void New(const v8::FunctionCallbackInfo<v8::Value>& args);
 	static v8::Persistent<v8::Function> constructor;
 	static void GetResourceID(const v8::FunctionCallbackInfo<v8::Value>& args);
@@ -177,8 +177,6 @@ private:
 	static void PackagePart(const v8::FunctionCallbackInfo<v8::Value>& args);
 	static void SetPackagePart(const v8::FunctionCallbackInfo<v8::Value>& args);
 	static void GetModelResourceID(const v8::FunctionCallbackInfo<v8::Value>& args);
-
-public:
 	CLib3MFResource();
 	~CLib3MFResource();
 	
@@ -443,7 +441,7 @@ public:
 /*************************************************************************************************************************
  Class CLib3MFObject 
 **************************************************************************************************************************/
-class CLib3MFObject : public CLib3MFBaseClass {
+class CLib3MFObject : public CLib3MFResource {
 private:
 	static void New(const v8::FunctionCallbackInfo<v8::Value>& args);
 	static v8::Persistent<v8::Function> constructor;
@@ -630,7 +628,7 @@ public:
 /*************************************************************************************************************************
  Class CLib3MFBaseMaterialGroup 
 **************************************************************************************************************************/
-class CLib3MFBaseMaterialGroup : public CLib3MFBaseClass {
+class CLib3MFBaseMaterialGroup : public CLib3MFResource {
 private:
 	static void New(const v8::FunctionCallbackInfo<v8::Value>& args);
 	static v8::Persistent<v8::Function> constructor;
@@ -655,7 +653,7 @@ public:
 /*************************************************************************************************************************
  Class CLib3MFColorGroup 
 **************************************************************************************************************************/
-class CLib3MFColorGroup : public CLib3MFBaseClass {
+class CLib3MFColorGroup : public CLib3MFResource {
 private:
 	static void New(const v8::FunctionCallbackInfo<v8::Value>& args);
 	static v8::Persistent<v8::Function> constructor;
@@ -678,7 +676,7 @@ public:
 /*************************************************************************************************************************
  Class CLib3MFTexture2DGroup 
 **************************************************************************************************************************/
-class CLib3MFTexture2DGroup : public CLib3MFBaseClass {
+class CLib3MFTexture2DGroup : public CLib3MFResource {
 private:
 	static void New(const v8::FunctionCallbackInfo<v8::Value>& args);
 	static v8::Persistent<v8::Function> constructor;
@@ -701,7 +699,7 @@ public:
 /*************************************************************************************************************************
  Class CLib3MFCompositeMaterials 
 **************************************************************************************************************************/
-class CLib3MFCompositeMaterials : public CLib3MFBaseClass {
+class CLib3MFCompositeMaterials : public CLib3MFResource {
 private:
 	static void New(const v8::FunctionCallbackInfo<v8::Value>& args);
 	static v8::Persistent<v8::Function> constructor;
@@ -724,7 +722,7 @@ public:
 /*************************************************************************************************************************
  Class CLib3MFMultiPropertyGroup 
 **************************************************************************************************************************/
-class CLib3MFMultiPropertyGroup : public CLib3MFBaseClass {
+class CLib3MFMultiPropertyGroup : public CLib3MFResource {
 private:
 	static void New(const v8::FunctionCallbackInfo<v8::Value>& args);
 	static v8::Persistent<v8::Function> constructor;
@@ -779,7 +777,7 @@ public:
 /*************************************************************************************************************************
  Class CLib3MFTexture2D 
 **************************************************************************************************************************/
-class CLib3MFTexture2D : public CLib3MFBaseClass {
+class CLib3MFTexture2D : public CLib3MFResource {
 private:
 	static void New(const v8::FunctionCallbackInfo<v8::Value>& args);
 	static v8::Persistent<v8::Function> constructor;
@@ -880,7 +878,7 @@ public:
 /*************************************************************************************************************************
  Class CLib3MFSliceStack 
 **************************************************************************************************************************/
-class CLib3MFSliceStack : public CLib3MFBaseClass {
+class CLib3MFSliceStack : public CLib3MFResource {
 private:
 	static void New(const v8::FunctionCallbackInfo<v8::Value>& args);
 	static v8::Persistent<v8::Function> constructor;

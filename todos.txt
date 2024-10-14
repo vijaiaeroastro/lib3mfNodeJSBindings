@@ -1,0 +1,2 @@
+setHandle
+const colorResourceId = colorGroup.GetResourceID(); <-- colorGroup does not have a GetResourceID function

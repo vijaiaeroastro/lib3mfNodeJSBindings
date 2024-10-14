@@ -105,7 +105,9 @@ function main() {
         writerSTL.WriteToFile("components.stl");
 
         console.log("3MF and STL files with components written successfully to 'components.3mf' and 'components.stl'");
+
     } catch (error) {
         console.error("An error occurred:", error);
+        process.exit(1); // Exit with a failure code
     }
 }
