@@ -3884,6 +3884,16 @@ void CLib3MFObject::Init()
 		NODE_SET_PROTOTYPE_METHOD(tpl, "ClearSliceStack", ClearSliceStack);
 		NODE_SET_PROTOTYPE_METHOD(tpl, "GetSliceStack", GetSliceStack);
 		NODE_SET_PROTOTYPE_METHOD(tpl, "AssignSliceStack", AssignSliceStack);
+
+
+		// Also bind methods from CLib3MFResource
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetResourceID", CLib3MFResource::GetResourceID);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetUniqueResourceID", CLib3MFResource::GetUniqueResourceID);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "PackagePart", CLib3MFResource::PackagePart);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "SetPackagePart", CLib3MFResource::SetPackagePart);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetModelResourceID", CLib3MFResource::GetModelResourceID);
+
+
 		constructor.Reset(isolate, tpl->GetFunction(isolate->GetCurrentContext()).ToLocalChecked());
 
 }
@@ -6391,6 +6401,15 @@ void CLib3MFBaseMaterialGroup::Init()
 		NODE_SET_PROTOTYPE_METHOD(tpl, "SetName", SetName);
 		NODE_SET_PROTOTYPE_METHOD(tpl, "SetDisplayColor", SetDisplayColor);
 		NODE_SET_PROTOTYPE_METHOD(tpl, "GetDisplayColor", GetDisplayColor);
+
+		// Also bind methods from CLib3MFResource
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetResourceID", CLib3MFResource::GetResourceID);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetUniqueResourceID", CLib3MFResource::GetUniqueResourceID);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "PackagePart", CLib3MFResource::PackagePart);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "SetPackagePart", CLib3MFResource::SetPackagePart);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetModelResourceID", CLib3MFResource::GetModelResourceID);
+
+
 		constructor.Reset(isolate, tpl->GetFunction(isolate->GetCurrentContext()).ToLocalChecked());
 
 }
@@ -6879,6 +6898,15 @@ void CLib3MFTexture2DGroup::Init()
 		NODE_SET_PROTOTYPE_METHOD(tpl, "GetTex2Coord", GetTex2Coord);
 		NODE_SET_PROTOTYPE_METHOD(tpl, "RemoveTex2Coord", RemoveTex2Coord);
 		NODE_SET_PROTOTYPE_METHOD(tpl, "GetTexture2D", GetTexture2D);
+
+		// Also bind methods from CLib3MFResource
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetResourceID", CLib3MFResource::GetResourceID);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetUniqueResourceID", CLib3MFResource::GetUniqueResourceID);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "PackagePart", CLib3MFResource::PackagePart);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "SetPackagePart", CLib3MFResource::SetPackagePart);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetModelResourceID", CLib3MFResource::GetModelResourceID);
+
+
 		constructor.Reset(isolate, tpl->GetFunction(isolate->GetCurrentContext()).ToLocalChecked());
 
 }
@@ -7081,6 +7109,15 @@ void CLib3MFCompositeMaterials::Init()
 		NODE_SET_PROTOTYPE_METHOD(tpl, "AddComposite", AddComposite);
 		NODE_SET_PROTOTYPE_METHOD(tpl, "RemoveComposite", RemoveComposite);
 		NODE_SET_PROTOTYPE_METHOD(tpl, "GetComposite", GetComposite);
+
+		// Also bind methods from CLib3MFResource
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetResourceID", CLib3MFResource::GetResourceID);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetUniqueResourceID", CLib3MFResource::GetUniqueResourceID);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "PackagePart", CLib3MFResource::PackagePart);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "SetPackagePart", CLib3MFResource::SetPackagePart);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetModelResourceID", CLib3MFResource::GetModelResourceID);
+
+
 		constructor.Reset(isolate, tpl->GetFunction(isolate->GetCurrentContext()).ToLocalChecked());
 
 }
@@ -7281,6 +7318,15 @@ void CLib3MFMultiPropertyGroup::Init()
 		NODE_SET_PROTOTYPE_METHOD(tpl, "AddLayer", AddLayer);
 		NODE_SET_PROTOTYPE_METHOD(tpl, "GetLayer", GetLayer);
 		NODE_SET_PROTOTYPE_METHOD(tpl, "RemoveLayer", RemoveLayer);
+
+		// Also bind methods from CLib3MFResource
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetResourceID", CLib3MFResource::GetResourceID);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetUniqueResourceID", CLib3MFResource::GetUniqueResourceID);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "PackagePart", CLib3MFResource::PackagePart);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "SetPackagePart", CLib3MFResource::SetPackagePart);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetModelResourceID", CLib3MFResource::GetModelResourceID);
+
+
 		constructor.Reset(isolate, tpl->GetFunction(isolate->GetCurrentContext()).ToLocalChecked());
 
 }
@@ -7915,6 +7961,15 @@ void CLib3MFTexture2D::Init()
 		NODE_SET_PROTOTYPE_METHOD(tpl, "SetTileStyleUV", SetTileStyleUV);
 		NODE_SET_PROTOTYPE_METHOD(tpl, "GetFilter", GetFilter);
 		NODE_SET_PROTOTYPE_METHOD(tpl, "SetFilter", SetFilter);
+
+		// Also bind methods from CLib3MFResource
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetResourceID", CLib3MFResource::GetResourceID);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetUniqueResourceID", CLib3MFResource::GetUniqueResourceID);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "PackagePart", CLib3MFResource::PackagePart);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "SetPackagePart", CLib3MFResource::SetPackagePart);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetModelResourceID", CLib3MFResource::GetModelResourceID);
+
+
 		constructor.Reset(isolate, tpl->GetFunction(isolate->GetCurrentContext()).ToLocalChecked());
 
 }
@@ -8953,6 +9008,15 @@ void CLib3MFSliceStack::Init()
 		NODE_SET_PROTOTYPE_METHOD(tpl, "CollapseSliceReferences", CollapseSliceReferences);
 		NODE_SET_PROTOTYPE_METHOD(tpl, "SetOwnPath", SetOwnPath);
 		NODE_SET_PROTOTYPE_METHOD(tpl, "GetOwnPath", GetOwnPath);
+
+
+		// Also bind methods from CLib3MFResource
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetResourceID", CLib3MFResource::GetResourceID);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetUniqueResourceID", CLib3MFResource::GetUniqueResourceID);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "PackagePart", CLib3MFResource::PackagePart);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "SetPackagePart", CLib3MFResource::SetPackagePart);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetModelResourceID", CLib3MFResource::GetModelResourceID);
+
 		constructor.Reset(isolate, tpl->GetFunction(isolate->GetCurrentContext()).ToLocalChecked());
 
 }
