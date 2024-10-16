@@ -47,20 +47,24 @@ def visualize_classes(classes, output_format='pdf'):
 
     # Render the tree
     dot.render('class_inheritance_tree', format=output_format)
-
 def find_mismatched_inheritance(python_classes, node_classes):
     mismatches = []
+    
     for class_name, base_classes in python_classes:
         # Prefix class name with 'CLib3MF' for Node.js comparison
         node_class_name = f"CLib3MF{class_name}"
         
-        # Special handling for 'Base' -> 'CLib3MFBaseClass'
-        base_classes = ['CLib3MFBaseClass' if base == 'Base' else base for base in base_classes]
+        # Prefix all base classes with 'CLib3MF' for comparison
+        base_classes = [f"CLib3MF{base}" for base in base_classes]
+        
+        # Handle special case: 'Base' in Python -> 'CLib3MFBaseClass' in Node.js
+        base_classes = ['CLib3MFBaseClass' if base == 'CLib3MFBase' else base for base in base_classes]
         
         if node_class_name in node_classes:
             node_base_class = node_classes[node_class_name]
             if base_classes and node_base_class not in base_classes:
                 mismatches.append((class_name, base_classes, node_base_class))
+    
     return mismatches
 
 @click.command()
