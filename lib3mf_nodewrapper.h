@@ -442,7 +442,7 @@ public:
  Class CLib3MFObject 
 **************************************************************************************************************************/
 class CLib3MFObject : public CLib3MFResource {
-private:
+public:
 	static void New(const v8::FunctionCallbackInfo<v8::Value>& args);
 	static v8::Persistent<v8::Function> constructor;
 	static void GetType(const v8::FunctionCallbackInfo<v8::Value>& args);
@@ -581,7 +581,7 @@ public:
 /*************************************************************************************************************************
  Class CLib3MFComponentsObject 
 **************************************************************************************************************************/
-class CLib3MFComponentsObject : public CLib3MFBaseClass {
+class CLib3MFComponentsObject : public CLib3MFObject {
 private:
 	static void New(const v8::FunctionCallbackInfo<v8::Value>& args);
 	static v8::Persistent<v8::Function> constructor;
