@@ -4462,7 +4462,7 @@ void CLib3MFObject::AssignSliceStack(const FunctionCallbackInfo<Value>& args)
 **************************************************************************************************************************/
 
 CLib3MFMeshObject::CLib3MFMeshObject()
-		: CLib3MFBaseClass()
+		: CLib3MFObject()
 {
 }
 
@@ -4500,6 +4500,40 @@ void CLib3MFMeshObject::Init()
 		NODE_SET_PROTOTYPE_METHOD(tpl, "SetGeometry", SetGeometry);
 		NODE_SET_PROTOTYPE_METHOD(tpl, "IsManifoldAndOriented", IsManifoldAndOriented);
 		NODE_SET_PROTOTYPE_METHOD(tpl, "BeamLattice", BeamLattice);
+
+
+		// Prototype
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetType", CLib3MFObject::GetType);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "SetType", CLib3MFObject::SetType);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetName", CLib3MFObject::GetName);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "SetName", CLib3MFObject::SetName);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetPartNumber", CLib3MFObject::GetPartNumber);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "SetPartNumber", CLib3MFObject::SetPartNumber);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "IsMeshObject", CLib3MFObject::IsMeshObject);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "IsComponentsObject", CLib3MFObject::IsComponentsObject);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "IsValid", CLib3MFObject::IsValid);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "SetAttachmentAsThumbnail", CLib3MFObject::SetAttachmentAsThumbnail);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetThumbnailAttachment", CLib3MFObject::GetThumbnailAttachment);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "ClearThumbnailAttachment", CLib3MFObject::ClearThumbnailAttachment);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetOutbox", CLib3MFObject::GetOutbox);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetUUID", CLib3MFObject::GetUUID);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "SetUUID", CLib3MFObject::SetUUID);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetMetaDataGroup", CLib3MFObject::GetMetaDataGroup);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "SetSlicesMeshResolution", CLib3MFObject::SetSlicesMeshResolution);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetSlicesMeshResolution", CLib3MFObject::GetSlicesMeshResolution);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "HasSlices", CLib3MFObject::HasSlices);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "ClearSliceStack", CLib3MFObject::ClearSliceStack);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetSliceStack", CLib3MFObject::GetSliceStack);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "AssignSliceStack", CLib3MFObject::AssignSliceStack);
+
+
+		// Also bind methods from CLib3MFResource
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetResourceID", CLib3MFResource::GetResourceID);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetUniqueResourceID", CLib3MFResource::GetUniqueResourceID);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "PackagePart", CLib3MFResource::PackagePart);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "SetPackagePart", CLib3MFResource::SetPackagePart);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetModelResourceID", CLib3MFResource::GetModelResourceID);
+
 		constructor.Reset(isolate, tpl->GetFunction(isolate->GetCurrentContext()).ToLocalChecked());
 
 }

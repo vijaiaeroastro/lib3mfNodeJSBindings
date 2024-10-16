@@ -480,7 +480,7 @@ public:
 /*************************************************************************************************************************
  Class CLib3MFMeshObject 
 **************************************************************************************************************************/
-class CLib3MFMeshObject : public CLib3MFBaseClass {
+class CLib3MFMeshObject : public CLib3MFObject {
 private:
 	static void New(const v8::FunctionCallbackInfo<v8::Value>& args);
 	static v8::Persistent<v8::Function> constructor;
