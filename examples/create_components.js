@@ -1,4 +1,4 @@
-const lib3mf = require('./lib3mf');
+const lib3mf = require('../lib3mf');
 
 // Helper function to create a vertex on the mesh object and return its index
 function createVertex(mesh, x, y, z) {

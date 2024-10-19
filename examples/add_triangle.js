@@ -31,7 +31,7 @@ Interface version: 2.3.2
 +++
 */
 
-const lib3mf = require('./lib3mf');
+const lib3mf = require('../lib3mf');
 
 // Helper function to create a vertex on the mesh object and return its index
 function createVertexAndReturnIndex(mesh, x, y, z) {

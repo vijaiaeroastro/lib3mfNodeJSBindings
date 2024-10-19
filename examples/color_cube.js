@@ -1,4 +1,4 @@
-const lib3mf = require('./lib3mf');
+const lib3mf = require('../lib3mf');
 
 function getAllMethods(obj) {
     let props = [];

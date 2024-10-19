@@ -32,7 +32,7 @@ Interface version: 2.3.2
 */
 
 const path = require('path');
-const lib3mf = require('./lib3mf');
+const lib3mf = require('../lib3mf');
 const fs = require('fs');
 
 // Function to get the file extension
