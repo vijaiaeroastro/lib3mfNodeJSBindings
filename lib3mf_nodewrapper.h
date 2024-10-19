@@ -192,6 +192,8 @@ class CLib3MFResourceIterator : public CLib3MFBaseClass {
 private:
 	static void New(const v8::FunctionCallbackInfo<v8::Value>& args);
 	static v8::Persistent<v8::Function> constructor;
+
+public:
 	static void MoveNext(const v8::FunctionCallbackInfo<v8::Value>& args);
 	static void MovePrevious(const v8::FunctionCallbackInfo<v8::Value>& args);
 	static void GetCurrent(const v8::FunctionCallbackInfo<v8::Value>& args);
@@ -210,7 +212,7 @@ public:
 /*************************************************************************************************************************
  Class CLib3MFSliceStackIterator 
 **************************************************************************************************************************/
-class CLib3MFSliceStackIterator : public CLib3MFBaseClass {
+class CLib3MFSliceStackIterator : public CLib3MFResourceIterator {
 private:
 	static void New(const v8::FunctionCallbackInfo<v8::Value>& args);
 	static v8::Persistent<v8::Function> constructor;
@@ -228,7 +230,7 @@ public:
 /*************************************************************************************************************************
  Class CLib3MFObjectIterator 
 **************************************************************************************************************************/
-class CLib3MFObjectIterator : public CLib3MFBaseClass {
+class CLib3MFObjectIterator : public CLib3MFResourceIterator {
 private:
 	static void New(const v8::FunctionCallbackInfo<v8::Value>& args);
 	static v8::Persistent<v8::Function> constructor;
@@ -246,7 +248,7 @@ public:
 /*************************************************************************************************************************
  Class CLib3MFMeshObjectIterator 
 **************************************************************************************************************************/
-class CLib3MFMeshObjectIterator : public CLib3MFBaseClass {
+class CLib3MFMeshObjectIterator : public CLib3MFResourceIterator {
 private:
 	static void New(const v8::FunctionCallbackInfo<v8::Value>& args);
 	static v8::Persistent<v8::Function> constructor;
@@ -264,7 +266,7 @@ public:
 /*************************************************************************************************************************
  Class CLib3MFComponentsObjectIterator 
 **************************************************************************************************************************/
-class CLib3MFComponentsObjectIterator : public CLib3MFBaseClass {
+class CLib3MFComponentsObjectIterator : public CLib3MFResourceIterator {
 private:
 	static void New(const v8::FunctionCallbackInfo<v8::Value>& args);
 	static v8::Persistent<v8::Function> constructor;
@@ -282,7 +284,7 @@ public:
 /*************************************************************************************************************************
  Class CLib3MFTexture2DIterator 
 **************************************************************************************************************************/
-class CLib3MFTexture2DIterator : public CLib3MFBaseClass {
+class CLib3MFTexture2DIterator : public CLib3MFResourceIterator {
 private:
 	static void New(const v8::FunctionCallbackInfo<v8::Value>& args);
 	static v8::Persistent<v8::Function> constructor;
@@ -300,7 +302,7 @@ public:
 /*************************************************************************************************************************
  Class CLib3MFBaseMaterialGroupIterator 
 **************************************************************************************************************************/
-class CLib3MFBaseMaterialGroupIterator : public CLib3MFBaseClass {
+class CLib3MFBaseMaterialGroupIterator : public CLib3MFResourceIterator {
 private:
 	static void New(const v8::FunctionCallbackInfo<v8::Value>& args);
 	static v8::Persistent<v8::Function> constructor;
@@ -318,7 +320,7 @@ public:
 /*************************************************************************************************************************
  Class CLib3MFColorGroupIterator 
 **************************************************************************************************************************/
-class CLib3MFColorGroupIterator : public CLib3MFBaseClass {
+class CLib3MFColorGroupIterator : public CLib3MFResourceIterator {
 private:
 	static void New(const v8::FunctionCallbackInfo<v8::Value>& args);
 	static v8::Persistent<v8::Function> constructor;
@@ -336,7 +338,7 @@ public:
 /*************************************************************************************************************************
  Class CLib3MFTexture2DGroupIterator 
 **************************************************************************************************************************/
-class CLib3MFTexture2DGroupIterator : public CLib3MFBaseClass {
+class CLib3MFTexture2DGroupIterator : public CLib3MFResourceIterator {
 private:
 	static void New(const v8::FunctionCallbackInfo<v8::Value>& args);
 	static v8::Persistent<v8::Function> constructor;
@@ -354,7 +356,7 @@ public:
 /*************************************************************************************************************************
  Class CLib3MFCompositeMaterialsIterator 
 **************************************************************************************************************************/
-class CLib3MFCompositeMaterialsIterator : public CLib3MFBaseClass {
+class CLib3MFCompositeMaterialsIterator : public CLib3MFResourceIterator {
 private:
 	static void New(const v8::FunctionCallbackInfo<v8::Value>& args);
 	static v8::Persistent<v8::Function> constructor;
@@ -372,7 +374,7 @@ public:
 /*************************************************************************************************************************
  Class CLib3MFMultiPropertyGroupIterator 
 **************************************************************************************************************************/
-class CLib3MFMultiPropertyGroupIterator : public CLib3MFBaseClass {
+class CLib3MFMultiPropertyGroupIterator : public CLib3MFResourceIterator {
 private:
 	static void New(const v8::FunctionCallbackInfo<v8::Value>& args);
 	static v8::Persistent<v8::Function> constructor;

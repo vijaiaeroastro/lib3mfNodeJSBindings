@@ -2465,7 +2465,7 @@ void CLib3MFResourceIterator::Count(const FunctionCallbackInfo<Value>& args)
 **************************************************************************************************************************/
 
 CLib3MFSliceStackIterator::CLib3MFSliceStackIterator()
-		: CLib3MFBaseClass()
+		: CLib3MFResourceIterator()
 {
 }
 
@@ -2484,6 +2484,15 @@ void CLib3MFSliceStackIterator::Init()
 
 		// Prototype
 		NODE_SET_PROTOTYPE_METHOD(tpl, "GetCurrentSliceStack", GetCurrentSliceStack);
+
+		// From resource iterator
+		NODE_SET_PROTOTYPE_METHOD(tpl, "MoveNext", CLib3MFResourceIterator::MoveNext);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "MovePrevious", CLib3MFResourceIterator::MovePrevious);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetCurrent", CLib3MFResourceIterator::GetCurrent);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "Clone", CLib3MFResourceIterator::Clone);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "Count", CLib3MFResourceIterator::Count);
+
+
 		constructor.Reset(isolate, tpl->GetFunction(isolate->GetCurrentContext()).ToLocalChecked());
 
 }
@@ -2544,7 +2553,7 @@ void CLib3MFSliceStackIterator::GetCurrentSliceStack(const FunctionCallbackInfo<
 **************************************************************************************************************************/
 
 CLib3MFObjectIterator::CLib3MFObjectIterator()
-		: CLib3MFBaseClass()
+		: CLib3MFResourceIterator()
 {
 }
 
@@ -2563,6 +2572,14 @@ void CLib3MFObjectIterator::Init()
 
 		// Prototype
 		NODE_SET_PROTOTYPE_METHOD(tpl, "GetCurrentObject", GetCurrentObject);
+
+		// From resource iterator
+		NODE_SET_PROTOTYPE_METHOD(tpl, "MoveNext", CLib3MFResourceIterator::MoveNext);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "MovePrevious", CLib3MFResourceIterator::MovePrevious);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetCurrent", CLib3MFResourceIterator::GetCurrent);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "Clone", CLib3MFResourceIterator::Clone);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "Count", CLib3MFResourceIterator::Count);
+
 		constructor.Reset(isolate, tpl->GetFunction(isolate->GetCurrentContext()).ToLocalChecked());
 
 }
@@ -2623,7 +2640,7 @@ void CLib3MFObjectIterator::GetCurrentObject(const FunctionCallbackInfo<Value>& 
 **************************************************************************************************************************/
 
 CLib3MFMeshObjectIterator::CLib3MFMeshObjectIterator()
-		: CLib3MFBaseClass()
+		: CLib3MFResourceIterator()
 {
 }
 
@@ -2642,6 +2659,14 @@ void CLib3MFMeshObjectIterator::Init()
 
 		// Prototype
 		NODE_SET_PROTOTYPE_METHOD(tpl, "GetCurrentMeshObject", GetCurrentMeshObject);
+
+		// From resource iterator
+		NODE_SET_PROTOTYPE_METHOD(tpl, "MoveNext", CLib3MFResourceIterator::MoveNext);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "MovePrevious", CLib3MFResourceIterator::MovePrevious);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetCurrent", CLib3MFResourceIterator::GetCurrent);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "Clone", CLib3MFResourceIterator::Clone);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "Count", CLib3MFResourceIterator::Count);
+
 		constructor.Reset(isolate, tpl->GetFunction(isolate->GetCurrentContext()).ToLocalChecked());
 
 }
@@ -2702,7 +2727,7 @@ void CLib3MFMeshObjectIterator::GetCurrentMeshObject(const FunctionCallbackInfo<
 **************************************************************************************************************************/
 
 CLib3MFComponentsObjectIterator::CLib3MFComponentsObjectIterator()
-		: CLib3MFBaseClass()
+		: CLib3MFResourceIterator()
 {
 }
 
@@ -2721,6 +2746,14 @@ void CLib3MFComponentsObjectIterator::Init()
 
 		// Prototype
 		NODE_SET_PROTOTYPE_METHOD(tpl, "GetCurrentComponentsObject", GetCurrentComponentsObject);
+
+		// From resource iterator
+		NODE_SET_PROTOTYPE_METHOD(tpl, "MoveNext", CLib3MFResourceIterator::MoveNext);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "MovePrevious", CLib3MFResourceIterator::MovePrevious);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetCurrent", CLib3MFResourceIterator::GetCurrent);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "Clone", CLib3MFResourceIterator::Clone);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "Count", CLib3MFResourceIterator::Count);
+
 		constructor.Reset(isolate, tpl->GetFunction(isolate->GetCurrentContext()).ToLocalChecked());
 
 }
@@ -2781,7 +2814,7 @@ void CLib3MFComponentsObjectIterator::GetCurrentComponentsObject(const FunctionC
 **************************************************************************************************************************/
 
 CLib3MFTexture2DIterator::CLib3MFTexture2DIterator()
-		: CLib3MFBaseClass()
+		: CLib3MFResourceIterator()
 {
 }
 
@@ -2800,6 +2833,14 @@ void CLib3MFTexture2DIterator::Init()
 
 		// Prototype
 		NODE_SET_PROTOTYPE_METHOD(tpl, "GetCurrentTexture2D", GetCurrentTexture2D);
+
+		// From resource iterator
+		NODE_SET_PROTOTYPE_METHOD(tpl, "MoveNext", CLib3MFResourceIterator::MoveNext);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "MovePrevious", CLib3MFResourceIterator::MovePrevious);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetCurrent", CLib3MFResourceIterator::GetCurrent);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "Clone", CLib3MFResourceIterator::Clone);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "Count", CLib3MFResourceIterator::Count);
+
 		constructor.Reset(isolate, tpl->GetFunction(isolate->GetCurrentContext()).ToLocalChecked());
 
 }
@@ -2860,7 +2901,7 @@ void CLib3MFTexture2DIterator::GetCurrentTexture2D(const FunctionCallbackInfo<Va
 **************************************************************************************************************************/
 
 CLib3MFBaseMaterialGroupIterator::CLib3MFBaseMaterialGroupIterator()
-		: CLib3MFBaseClass()
+		: CLib3MFResourceIterator()
 {
 }
 
@@ -2879,6 +2920,14 @@ void CLib3MFBaseMaterialGroupIterator::Init()
 
 		// Prototype
 		NODE_SET_PROTOTYPE_METHOD(tpl, "GetCurrentBaseMaterialGroup", GetCurrentBaseMaterialGroup);
+
+		// From resource iterator
+		NODE_SET_PROTOTYPE_METHOD(tpl, "MoveNext", CLib3MFResourceIterator::MoveNext);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "MovePrevious", CLib3MFResourceIterator::MovePrevious);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetCurrent", CLib3MFResourceIterator::GetCurrent);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "Clone", CLib3MFResourceIterator::Clone);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "Count", CLib3MFResourceIterator::Count);
+
 		constructor.Reset(isolate, tpl->GetFunction(isolate->GetCurrentContext()).ToLocalChecked());
 
 }
@@ -2939,7 +2988,7 @@ void CLib3MFBaseMaterialGroupIterator::GetCurrentBaseMaterialGroup(const Functio
 **************************************************************************************************************************/
 
 CLib3MFColorGroupIterator::CLib3MFColorGroupIterator()
-		: CLib3MFBaseClass()
+		: CLib3MFResourceIterator()
 {
 }
 
@@ -2958,6 +3007,14 @@ void CLib3MFColorGroupIterator::Init()
 
 		// Prototype
 		NODE_SET_PROTOTYPE_METHOD(tpl, "GetCurrentColorGroup", GetCurrentColorGroup);
+
+		// From resource iterator
+		NODE_SET_PROTOTYPE_METHOD(tpl, "MoveNext", CLib3MFResourceIterator::MoveNext);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "MovePrevious", CLib3MFResourceIterator::MovePrevious);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetCurrent", CLib3MFResourceIterator::GetCurrent);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "Clone", CLib3MFResourceIterator::Clone);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "Count", CLib3MFResourceIterator::Count);
+
 		constructor.Reset(isolate, tpl->GetFunction(isolate->GetCurrentContext()).ToLocalChecked());
 
 }
@@ -3018,7 +3075,7 @@ void CLib3MFColorGroupIterator::GetCurrentColorGroup(const FunctionCallbackInfo<
 **************************************************************************************************************************/
 
 CLib3MFTexture2DGroupIterator::CLib3MFTexture2DGroupIterator()
-		: CLib3MFBaseClass()
+		: CLib3MFResourceIterator()
 {
 }
 
@@ -3037,6 +3094,14 @@ void CLib3MFTexture2DGroupIterator::Init()
 
 		// Prototype
 		NODE_SET_PROTOTYPE_METHOD(tpl, "GetCurrentTexture2DGroup", GetCurrentTexture2DGroup);
+
+		// From resource iterator
+		NODE_SET_PROTOTYPE_METHOD(tpl, "MoveNext", CLib3MFResourceIterator::MoveNext);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "MovePrevious", CLib3MFResourceIterator::MovePrevious);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetCurrent", CLib3MFResourceIterator::GetCurrent);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "Clone", CLib3MFResourceIterator::Clone);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "Count", CLib3MFResourceIterator::Count);
+
 		constructor.Reset(isolate, tpl->GetFunction(isolate->GetCurrentContext()).ToLocalChecked());
 
 }
@@ -3097,7 +3162,7 @@ void CLib3MFTexture2DGroupIterator::GetCurrentTexture2DGroup(const FunctionCallb
 **************************************************************************************************************************/
 
 CLib3MFCompositeMaterialsIterator::CLib3MFCompositeMaterialsIterator()
-		: CLib3MFBaseClass()
+		: CLib3MFResourceIterator()
 {
 }
 
@@ -3116,6 +3181,14 @@ void CLib3MFCompositeMaterialsIterator::Init()
 
 		// Prototype
 		NODE_SET_PROTOTYPE_METHOD(tpl, "GetCurrentCompositeMaterials", GetCurrentCompositeMaterials);
+
+		// From resource iterator
+		NODE_SET_PROTOTYPE_METHOD(tpl, "MoveNext", CLib3MFResourceIterator::MoveNext);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "MovePrevious", CLib3MFResourceIterator::MovePrevious);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetCurrent", CLib3MFResourceIterator::GetCurrent);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "Clone", CLib3MFResourceIterator::Clone);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "Count", CLib3MFResourceIterator::Count);
+
 		constructor.Reset(isolate, tpl->GetFunction(isolate->GetCurrentContext()).ToLocalChecked());
 
 }
@@ -3176,7 +3249,7 @@ void CLib3MFCompositeMaterialsIterator::GetCurrentCompositeMaterials(const Funct
 **************************************************************************************************************************/
 
 CLib3MFMultiPropertyGroupIterator::CLib3MFMultiPropertyGroupIterator()
-		: CLib3MFBaseClass()
+		: CLib3MFResourceIterator()
 {
 }
 
@@ -3195,6 +3268,14 @@ void CLib3MFMultiPropertyGroupIterator::Init()
 
 		// Prototype
 		NODE_SET_PROTOTYPE_METHOD(tpl, "GetCurrentMultiPropertyGroup", GetCurrentMultiPropertyGroup);
+
+		// From resource iterator
+		NODE_SET_PROTOTYPE_METHOD(tpl, "MoveNext", CLib3MFResourceIterator::MoveNext);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "MovePrevious", CLib3MFResourceIterator::MovePrevious);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "GetCurrent", CLib3MFResourceIterator::GetCurrent);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "Clone", CLib3MFResourceIterator::Clone);
+		NODE_SET_PROTOTYPE_METHOD(tpl, "Count", CLib3MFResourceIterator::Count);
+
 		constructor.Reset(isolate, tpl->GetFunction(isolate->GetCurrentContext()).ToLocalChecked());
 
 }
